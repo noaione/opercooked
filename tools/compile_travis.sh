@@ -27,6 +27,7 @@ if [ "${BUILD_FOR:-}" == "" ]; then
     BUILD_FOR=unknown
 fi
 
+mkdir -p build
 echo "OS Detected: ${TRAVIS_OS_NAME}"
 ALL_MODULES=`ls src/modules/*.cpp`
 OUTPUT_FILE="build/OperCooked_${BUILD_FOR}"
