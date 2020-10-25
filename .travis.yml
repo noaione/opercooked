@@ -29,8 +29,3 @@ matrix:
 
 script:
     - "./tools/compile_travis.sh"
-
-deploy:
-    - provider: script
-      skip-cleanup: true
-      script: bash tools/upload_build.sh
