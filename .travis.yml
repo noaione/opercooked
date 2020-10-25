@@ -1,0 +1,35 @@
+language: cpp
+
+matrix:
+    include:
+# Linux Build
+        - os: linux
+          compiler: g++
+          dist: bionic
+          env: CXX_TOOLS=g++ BUILD_FOR=Linux
+
+# Cross-compile Build for Linux via mingw64
+        - os: linux
+          compiler: x86_64-w64-mingw32-g++
+          env: CXX_TOOLS=x86_64-w64-mingw32-g++ BUILD_FOR=Windows
+          dist: bionic
+          addons:
+                apt:
+                    packages:
+                        - gcc-mingw-w64-base
+                        - binutils-mingw-w64-x86-64
+                        - gcc-mingw-w64-x86-64
+                        - gcc-mingw-w64
+                        - g++-mingw-w64-x86-64
+
+# Build for macOS via clang
+        - os: osx
+          osx_image: xcode8
+          env: CXX_TOOLS=clang BUILD_FOR=OSX
+
+script:
+    - "./tools/compile_travis.sh"
+
+deploy:
+    - provider: script
+      script: ./tools/upload_build.sh
