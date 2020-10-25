@@ -13,7 +13,7 @@ matrix:
         - os: linux
           compiler: x86_64-w64-mingw32-g++
           env: CXX_TOOLS=x86_64-w64-mingw32-g++
-          dist: trusty
+          dist: bionic
           addons:
               apt:
               packages:
