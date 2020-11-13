@@ -6,7 +6,10 @@ typedef struct Beverages {
     int price;
     char flavor[25];
     char size;
+    int modifier;
     int cooktime;
 } Beverages;
+
+Beverages createBeverages(void);
 
 #endif /* MOD_BEVERAGES_H */
