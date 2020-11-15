@@ -20,8 +20,8 @@ void Main_Menu(int profit){
 
 int main(){
     int profit = 0, option, flag = 1;
-    do{
-        do{
+    do {
+        do {
             Main_Menu(profit);
             scanf("%d", &option);
 	    } while(option > 5 || option < 1);
@@ -29,17 +29,16 @@ int main(){
         switch (option){
         case 1:
             createBeverages();
-            addDessert(void);
+            addDessert();
             break;
-        
         case 2:
-            Cooking_Progress();
+            // Cooking_Progress();
             break;
         case 3:
-            Order_History();
+            // Order_History();
             break;
         case 4:
-            Order_Menu();
+            // Order_Menu();
             break;
         case 5:
             printf("Thank You");
