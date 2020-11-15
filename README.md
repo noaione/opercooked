@@ -21,7 +21,8 @@ Jangan commit file `src/main.cpp` karena ini cuma untuk test.
 ## Guidelines Commit Message
 Buatlah commit message sejelas mungkin di-baris pertama, baris pertama merupakan Summary dari perubahan yang situ buat.<br>
 Misalkan situ merubah file `src/main.cpp` yang menambah menu Drinks, ketik seperti ini misalnya:<br>
-`README: Tambah menu Drinks`
+`main: Tambah menu Drinks`<br>
+`main:` untuk menandakan bahwa file `src/main.cpp` diubah, dan `Tambah menu Drinks` untuk menandakan apa perubahannya.
 
 Dan kalau mau menjelaskan lebih panjang apa perubahannya, taruh di line 2 dan seterusnya.
 
