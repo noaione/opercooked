@@ -33,4 +33,5 @@ script:
 deploy:
     - provider: script
       cleanup: false
+      skip-cleanup: true
       script: bash tools/upload_build.sh
