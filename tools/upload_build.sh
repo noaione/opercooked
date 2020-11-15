@@ -25,8 +25,11 @@ OUTPUT_FILE="build/OperCooked_${BUILD_FOR}_${TRAVIS_BRANCH}_${TRAVIS_COMMIT}"
 OLD_OUTPUT_FILE="build/OperCooked_${BUILD_FOR}"
 if [ "${BUILD_FOR:-}" == "Windows" ]; then
 	OUTPUT_FILE="${OUTPUT_FILE}.exe"
-	OLD_OUTPUT_FILE="${OLD_OUTPUT_FILE}.exe"
+	# OLD_OUTPUT_FILE="${OLD_OUTPUT_FILE}"
 fi
+
+echo "Reading build folder..."
+ls build/
 
 echo "Renaming File for Shard Upload..."
 mv $OLD_OUTPUT_FILE $OUTPUT_FILE
