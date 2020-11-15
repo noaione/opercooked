@@ -86,7 +86,8 @@ void viewOrderHistory()
 	else
 	{
 		// pass to main menu
-		printf("Press Enter to Continue");
+		printf("There is no order history!\n\n");
+		printf("Press Enter to continue");
 		getchar();
 	}
 }
