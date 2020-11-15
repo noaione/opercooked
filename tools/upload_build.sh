@@ -21,9 +21,15 @@ if [ "${BUILD_FOR:-}" == "" ]; then
     BUILD_FOR=unknown
 fi
 
-OUTPUT_FILE="build/OperCooked_${TRAVIS_BRANCH}_${TRAVIS_COMMIT}.tar.gz"
+OUTPUT_FILE="build/OperCooked_${BUILD_FOR}_${TRAVIS_BRANCH}_${TRAVIS_COMMIT}"
+OLD_OUTPUT_FILE="build/OperCooked_${BUILD_FOR}"
+if [ $BUILD_FOR == "Windows"]; then
+	OUTPUT_FILE="${OUTPUT_FILE}.exe"
+	OLD_OUTPUT_FILE="${OLD_OUTPUT_FILE}.exe"
+fi
 
-echo "Gunzipping..."
-tar -czvf $OUTPUT_FILE build/
+echo "Renaming File for Shard Upload..."
+mv $OLD_OUTPUT_FILE $OUTPUT_FILE
+
 echo "Uploading to ihaCDN..."
-curl -X POST -F "file=@${OUTPUT_FILE}" -F "secret=${IHATEANIME_APIKEY}" https://p.ihateani.me/upload
+curl -X POST -F "file=@${OUTPUT_FILE}" -F "forceoriginal=1" -F "secret=${IHATEANIME_APIKEY}" https://p.ihateani.me/upload
