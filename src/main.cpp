@@ -20,6 +20,19 @@ void Main_Menu(int profit)
     printf(">> ");
 }
 
+int addNewMenu() {
+    int option;
+    puts("What do you want to add?");
+    puts("1. Dessert");
+    puts("2. Drink");
+    do {
+        printf("Choose: ");
+        scanf("%d", &option);
+        getchar();
+    } while (option != 1 || option != 2);
+    return option;
+}
+
 int main()
 {
     int profit = 0, option, flag = 1;
@@ -35,8 +48,14 @@ int main()
         switch (option)
         {
         case 1:
-            createBeverages();
-            addDessert();
+            int pickedMenu = addNewMenu();
+            if (pickedMenu == 1) {
+                Dessert newdessert = addDessert();
+                // add to menu list
+            } else if (pickedMenu == 2) {
+                Beverages newbeverage = createBeverages();
+                // add to menu list
+            }
             break;
         case 2:
             // Cooking_Progress();
