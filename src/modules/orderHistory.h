@@ -2,6 +2,8 @@
 #define MOD_ORDERHISTORY_H
 
 #include <time.h>
+#include "desserts.h"
+#include "beverages.h"
 
 //int ctrHistory;
 
