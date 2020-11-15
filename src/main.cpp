@@ -3,12 +3,14 @@
 #include "modules/orderHistory.h"
 #include "modules/beverages.h"
 #include "modules/desserts.h"
+#include "modules/utils.h"
 
 // Cukup satu int main
 // Jangan buat di file lain karena akan conflict.
-void Main_Menu(int profit){
+void Main_Menu(int profit)
+{
     puts("Welcome to Opercooked");
-   	printf("Today Profit: $%d\n", profit);
+    printf("Today Profit: $ %d\n", profit);
     puts("==============================");
     puts("1. Add Dessert or Beverages");
     puts("2. View Cooking Process");
@@ -18,15 +20,20 @@ void Main_Menu(int profit){
     printf(">> ");
 }
 
-int main(){
+int main()
+{
     int profit = 0, option, flag = 1;
-    do {
-        do {
+    do
+    {
+        do
+        {
             Main_Menu(profit);
             scanf("%d", &option);
-	    } while(option > 5 || option < 1);
+            getchar();
+        } while (option > 5 || option < 1);
 
-        switch (option){
+        switch (option)
+        {
         case 1:
             createBeverages();
             addDessert();
@@ -35,7 +42,7 @@ int main(){
             // Cooking_Progress();
             break;
         case 3:
-            // Order_History();
+            viewOrderHistory();
             break;
         case 4:
             // Order_Menu();
