@@ -1,10 +1,12 @@
 #include <stdio.h>
+
 #include "modules/orderHistory.h"
+#include "modules/beverages.h"
+#include "modules/desserts.h"
 
 // Cukup satu int main
 // Jangan buat di file lain karena akan conflict.
 int main() {
-	
-    printf("OperCooked :)");
+    puts("Selamat datang di Opercooked");
     return 0;
 }

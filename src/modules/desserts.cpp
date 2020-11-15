@@ -19,7 +19,7 @@ Dessert addDessert(void)
     //input nama makanan
     while (strlen(NewDessert.Dessert_Name) < 5)
     {
-        printf("input the name[at least 5 character]: ");
+        printf("Input the name [at least 5 character]: ");
         scanf("%[^\n]", &NewDessert.Dessert_Name);
         getchar();
     }
@@ -48,8 +48,9 @@ Dessert addDessert(void)
         Checking_Topping(NewDessert.Topping, &NewDessert);
     }
 
-    
     NewDessert.Totaltime = Total_Time(NewDessert.Extra_Time);
+    // Kapitalisasi kembali.
+    NewDessert.Topping[0] -= 32;
     while (NewDessert.callories < 1.00 || NewDessert.callories > 99.00)
     {
         printf("Insert callories [1.00 - 99.00]: ");

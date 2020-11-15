@@ -24,7 +24,7 @@ Beverages createBeverages(void) {
         getchar();
     }
     while (newDrinks.price < 10 || newDrinks.price > 500) {
-        printf("Input the price [10 - 500]: $");
+        printf("Input the price [10 - 500]: $ ");
         scanf("%d", &newDrinks.price);
         getchar();
     }
