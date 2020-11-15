@@ -22,6 +22,7 @@ matrix:
                         - gcc-mingw-w64
                         - g++-mingw-w64-x86-64
 
+    allow_failures:
 # Build for macOS via clang
         - os: osx
           osx_image: xcode8

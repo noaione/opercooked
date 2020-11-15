@@ -1,6 +1,8 @@
 # opercooked
 Tugas Pertama Algorithm Bootcamp Season 2
 
+[![Build Status](https://travis-ci.com/noaione/opercooked.svg?branch=master)](https://travis-ci.com/noaione/opercooked)
+
 ## Compiling
 Cara compile project ini cukup mudah.
 
