@@ -17,60 +17,67 @@ void Main_Menu(int profit)
     puts("3. View Order History");
     puts("4. Order Dessert or Beverage");
     puts("5. Exit");
-    printf(">> ");
+    // printf(">> ");
 }
 
 int addNewMenu() {
-    int option;
+    int menupicked = 0;
     puts("What do you want to add?");
     puts("1. Dessert");
     puts("2. Drink");
-    do {
+    while (menupicked < 1 || menupicked > 2) {
         printf("Choose: ");
-        scanf("%d", &option);
+        scanf("%d", &menupicked);
         getchar();
-    } while (option != 1 || option != 2);
-    return option;
+    }
+    return menupicked;
 }
 
 int main()
 {
-    int profit = 0, option, flag = 1;
-    do
-    {
-        do
-        {
-            Main_Menu(profit);
+    int profit = 0, option = 0, flag = 1;
+    while (flag) {
+        Main_Menu(profit);
+        while (option < 1 || option > 5) {
+            printf(">> ");
             scanf("%d", &option);
             getchar();
-        } while (option > 5 || option < 1);
-
-        switch (option)
-        {
-        case 1:
-            int pickedMenu = addNewMenu();
-            if (pickedMenu == 1) {
-                Dessert newdessert = addDessert();
-                // add to menu list
-            } else if (pickedMenu == 2) {
-                Beverages newbeverage = createBeverages();
-                // add to menu list
-            }
-            break;
-        case 2:
-            // Cooking_Progress();
-            break;
-        case 3:
-            viewOrderHistory();
-            break;
-        case 4:
-            // Order_Menu();
-            break;
-        case 5:
-            printf("Thank You");
-            flag = 0;
-            return 0;
         }
-    } while (flag == 1);
+
+        switch (option) {
+            case 1:
+                {
+                    puts("");
+                    int pickedMenu = addNewMenu();
+                    puts("");
+                    if (pickedMenu == 1) {
+                        Dessert newdessert = addDessert();
+                        // add to menu list
+                    } else if (pickedMenu == 2) {
+                        Beverages newbeverage = createBeverages();
+                        // add to menu list
+                    }
+                    break;
+                }
+            case 2:
+                puts("");
+                // Cooking_Progress();
+                break;
+            case 3:
+                puts("");
+                viewOrderHistory();
+                break;
+            case 4:
+                puts("");
+                // Order_Menu();
+                break;
+            case 5:
+                puts("Thank You");
+                flag = 0;
+                return 0;
+        }
+        // reset option
+        option = 0;
+    }
     return 0;
 }
