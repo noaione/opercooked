@@ -26,7 +26,7 @@ void waktu()
 	(timeinfo->tm_hour > 12) ? strcpy(histo[ctrHistory].now.amPm, "PM") : strcpy(histo[ctrHistory].now.amPm, "AM");
 }
 
-// panggil fungsi ini tepat setelah beverage selesai dibuat untuk menambahkan history
+// panggil fungsi ini tepat setelah memanggil fungsi createBeverages()untuk menambahkan history
 void putHistoryBeverages(Beverages minumanBaru)
 {
 	strcpy(histo[ctrHistory].name, minumanBaru.name);
@@ -40,7 +40,7 @@ void putHistoryBeverages(Beverages minumanBaru)
 	ctrHistory++;
 }
 
-// panggil fungsi ini tepat setelah dessert selesai dibuat untuk menambahkan history
+// panggil fungsi ini tepat setelah memanggil fungsi createDessert() untuk menambahkan history
 void putHistoryDesserts(Desserts dessertBaru)
 {
 	strcpy(histo[ctrHistory].name, dessertBaru.name);
