@@ -1,13 +1,11 @@
 #ifndef MOD_ORDERHISTORY_H
 #define MOD_ORDERHISTORY_H
 
+#include <time.h>
+
 //int ctrHistory;
-int i;
 
-time_t rawtime;
-struct tm *timeinfo;
-
-typedef struct timeNow{
+typedef struct timeNow {
 	int year;
 	int mon;
 	int day;
@@ -17,19 +15,19 @@ typedef struct timeNow{
 	char amPm[5];
 } timeNow;
 
-typedef struct inputHistory{
+typedef struct inputHistory {
 	char name[5000];
-   int price;
-   char topping[25];
-   float callories;
-   char flavor[25];
-   char size[5];
-   timeNow now;
-} history;
+	int price;
+	char topping[25];
+	float callories;
+	char flavor[25];
+	char size;
+	timeNow now;
+} inputHistory;
 
 void waktu();
 void putHistoryBeverages(Beverages minumanBaru);
-void putHistoryDesserts(Desserts dessertBaru);
-void VieworderHistory();
+void putHistoryDesserts(Dessert dessertBaru);
+void viewOrderHistory();
 
 #endif /* MOD_ORDERHISTORY_H */
