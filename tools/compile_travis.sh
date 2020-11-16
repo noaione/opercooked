@@ -40,4 +40,6 @@ OUTPUT_FILE="build/OperCooked_${BUILD_FOR}"
 echo "[${TRAVIS_OS_NAME}_${BUILD_FOR}] Building..."
 echo "[${TRAVIS_OS_NAME}_${BUILD_FOR}] Executing: ${CXX} src/main.cpp ${ALL_MODULES} -o ${OUTPUT_FILE} -O1 -s"
 $CXX src/main.cpp $ALL_MODULES -o $OUTPUT_FILE $EXTRA -O2 -s
+echo "[${TRAVIS_OS_NAME}_${BUILD_FOR}] Hashing File for verifcation..."
+sha256sum $OUTPUT_FILE
 echo "[${TRAVIS_OS_NAME}_${BUILD_FOR}] Artifact build!"
