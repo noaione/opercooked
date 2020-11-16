@@ -4,6 +4,7 @@
 #include "modules/beverages.h"
 #include "modules/desserts.h"
 #include "modules/utils.h"
+#include "modules/cookingProcess.h"
 
 // Cukup satu int main
 // Jangan buat di file lain karena akan conflict.
@@ -60,9 +61,24 @@ int main()
                     break;
                 }
             case 2:
-                puts("");
-                // Cooking_Progress();
-                break;
+                {
+                    puts("");
+                    cookedData cookProcess = viewCookProcess();
+                    if (cookProcess.totalCooked + 1 > 0) {
+                        for (int i = 0; i < cookProcess.totalCooked + 1; i++) {
+                            if (cookProcess.cookedItems[i].type == 0) {
+                                // dessert
+                                putHistoryDesserts(cookProcess.cookedItems[i].desserts);
+                                profit += cookProcess.cookedItems[i].price;
+                            } else if (cookProcess.cookedItems[i].type == 1) {
+                                // beverages
+                                putHistoryBeverages(cookProcess.cookedItems[i].drinks);
+                                profit += cookProcess.cookedItems[i].price;
+                            }
+                        }
+                    }
+                    break;
+                }
             case 3:
                 puts("");
                 viewOrderHistory();
@@ -70,6 +86,8 @@ int main()
             case 4:
                 puts("");
                 // Order_Menu();
+                // if dessert, cookDessert(xxxxxx);
+                // if beverages, cookBeverage(xxxxxx);
                 break;
             case 5:
                 puts("Thank You");
