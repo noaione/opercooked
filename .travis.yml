@@ -1,6 +1,6 @@
 language: cpp
 
-matrix:
+jobs:
     include:
 # Linux Build
         - os: linux
