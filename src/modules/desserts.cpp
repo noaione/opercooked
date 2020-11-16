@@ -20,7 +20,7 @@ Dessert addDessert(void)
     while (strlen(NewDessert.Dessert_Name) < 5)
     {
         printf("Input the name [at least 5 character]: ");
-        scanf("%[^\n]", &NewDessert.Dessert_Name);
+        scanf("%[^\n]", NewDessert.Dessert_Name);
         getchar();
     }
     //input harga makanan
@@ -35,7 +35,7 @@ Dessert addDessert(void)
     while (NewDessert.modifier < 0)
     {
         printf("Input the Topping ['Caramel' | 'Honey' | 'Syrup'](Case Insensitive): ");
-        scanf("%s", &NewDessert.Topping);
+        scanf("%s", NewDessert.Topping);
         getchar();
         int topping_len = strlen(NewDessert.Topping);
         for (int i = 0; i < topping_len; i++)

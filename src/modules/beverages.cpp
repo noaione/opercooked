@@ -20,7 +20,7 @@ Beverages createBeverages(void) {
     Beverages newDrinks;
     while (strlen(newDrinks.name) < 5) {
         printf("Input the name [at least 5 characters]: ");
-        scanf("%[^\n]", &newDrinks.name);
+        scanf("%[^\n]", newDrinks.name);
         getchar();
     }
     while (newDrinks.price < 10 || newDrinks.price > 500) {
@@ -31,7 +31,7 @@ Beverages createBeverages(void) {
     newDrinks.modifier = -1;
     while (newDrinks.modifier < 0) {
         printf("Input the flavor ['Mint' | 'Mix Berry' | 'Cheese'](Case Sensitive): ");
-        scanf("%[^\n]", &newDrinks.flavor);
+        scanf("%[^\n]", newDrinks.flavor);
         getchar();
         if (strcmp(newDrinks.flavor, "Mint") == 0) {
             newDrinks.modifier = 1;
