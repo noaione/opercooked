@@ -56,7 +56,7 @@ MenuOpercooked newOrder()
         {   //Beverages
             if (ListOrderMenu[i].type == 'b') 
             {
-                printf("| %d\t| %s\t\t\t| %d\t| -\t\t| -\t| %s\t\t| %s\t|\n", i + 1, ListOrderMenu[i].beverageData.name, ListOrderMenu[i].beverageData.price, ListOrderMenu[i].beverageData.flavor, ListOrderMenu[i].beverageData.size);
+                printf("| %d\t| %s\t\t\t| %d\t| -\t\t| -\t| %s\t\t| %c\t|\n", i + 1, ListOrderMenu[i].beverageData.name, ListOrderMenu[i].beverageData.price, ListOrderMenu[i].beverageData.flavor, ListOrderMenu[i].beverageData.size);
             }
             //Desserts
             else 

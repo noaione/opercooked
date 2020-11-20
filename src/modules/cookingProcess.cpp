@@ -30,7 +30,7 @@ cookedData viewCookProcess() {
         finished.totalCooked = -1;
         //print header tabel
         printf("| No\t| Type\t\t| Name\t\t\t\t| Price\t| Time Left\t|\n");
-		printf("-------------------------------------------------------------------------\n");
+		printf("---------------------------------------------------------------------------------\n");
 
         //print tabel
         for(int i = 0; i < ctr; i++) {
@@ -40,9 +40,9 @@ cookedData viewCookProcess() {
                 ctr--;
             } else {
                 if (processing[i].type == 1) {
-                    printf("| %d\t| Drink\t| %s\t\t\t\t| $%d\t| %ds\t|\n", i + 1, processing[i].drinks.name, processing[i].price, processing[i].timer);
+                    printf("| %d\t| Drink\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].drinks.name, processing[i].price, processing[i].timer);
                 } else {
-                    printf("| %d\t| Dessert\t| %s\t\t\t\t| $%d\t| %ds\t|\n", i + 1, processing[i].desserts.Dessert_Name, processing[i].price, processing[i].timer);
+                    printf("| %d\t| Dessert\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].desserts.Dessert_Name, processing[i].price, processing[i].timer);
                 }
                 processing[i].timer -= 10;
             }
