@@ -27,9 +27,10 @@ typedef struct inputHistory {
 	timeNow now;
 } inputHistory;
 
-void waktu();
+timeNow waktu();
 void putHistoryBeverages(Beverages *minumanBaru);
 void putHistoryDesserts(Dessert *dessertBaru);
+void nukeAndFreeHistoryList();
 void viewOrderHistory();
 
 #endif /* MOD_ORDERHISTORY_H */
