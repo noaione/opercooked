@@ -100,7 +100,7 @@ void nukeAndFreeHistoryList() {
 }
 
 void printOrderData(inputHistory *histo, int pos) {
-	if (histo->callories == -1) {
+	if (histo->size != '-') {
 		// Beverage
 		printf("| %d\t| %s\t\t\t| %d\t| %s\t\t| -\t\t| %s\t| %c\t| %04d/%02d/%02d %02d:%02d:%02d %s\t\t|\n", pos, histo->name, histo->price, histo->topping, histo->flavor, histo->size,
 				histo->now.year + 1900, histo->now.mon, histo->now.day, histo->now.hour, histo->now.minute, histo->now.second, histo->now.amPm);
