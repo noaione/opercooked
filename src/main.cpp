@@ -95,6 +95,7 @@ int main()
                 break;
             case 5:
                 puts("Thank You");
+                removeAndFreeAllMenu();
                 flag = 0;
                 return 0;
         }

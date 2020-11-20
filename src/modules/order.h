@@ -12,6 +12,7 @@ typedef struct MenuOpercooked {
 
 void addBeveragesToList(Beverages *menuBaru);
 void addDessertToList(Dessert *menuBaru);
+void removeAndFreeAllMenu();
 MenuOpercooked newOrder();
 
 #endif
