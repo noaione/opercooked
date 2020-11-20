@@ -7,14 +7,14 @@
 MenuOpercooked ListOrderMenu[100];
 int ctrMenu = -1;
 
-void addBeveragesToList(Beverages menuBaru) 
+void addBeveragesToList(Beverages *menuBaru) 
 {
     ctrMenu++;
     ListOrderMenu[ctrMenu].beverageData = menuBaru;
     ListOrderMenu[ctrMenu].type = 'b'; // b for beverages
 }
 
-void addDessertToList(Dessert menuBaru) 
+void addDessertToList(Dessert *menuBaru) 
 {
     ctrMenu++;
     ListOrderMenu[ctrMenu].dessertData = menuBaru;
@@ -56,12 +56,12 @@ MenuOpercooked newOrder()
         {   //Beverages
             if (ListOrderMenu[i].type == 'b') 
             {
-                printf("| %d\t| %s\t\t\t| %d\t| -\t\t| -\t| %s\t\t| %c\t|\n", i + 1, ListOrderMenu[i].beverageData.name, ListOrderMenu[i].beverageData.price, ListOrderMenu[i].beverageData.flavor, ListOrderMenu[i].beverageData.size);
+                printf("| %d\t| %s\t\t\t| %d\t| -\t\t| -\t| %s\t\t| %c\t|\n", i + 1, ListOrderMenu[i].beverageData->name, ListOrderMenu[i].beverageData->price, ListOrderMenu[i].beverageData->flavor, ListOrderMenu[i].beverageData->size);
             }
             //Desserts
             else 
             {
-                printf("| %d\t| %s\t\t\t| %d\t| %s\t\t| %.2f\t| -\t\t| -\t|\n", i + 1, ListOrderMenu[i].dessertData.Dessert_Name, ListOrderMenu[i].dessertData.Price, ListOrderMenu[i].dessertData.Topping, ListOrderMenu[i].dessertData.callories);
+                printf("| %d\t| %s\t\t\t| %d\t| %s\t\t| %.2f\t| -\t\t| -\t|\n", i + 1, ListOrderMenu[i].dessertData->Dessert_Name, ListOrderMenu[i].dessertData->Price, ListOrderMenu[i].dessertData->Topping, ListOrderMenu[i].dessertData->callories);
             }
             i++;
         }

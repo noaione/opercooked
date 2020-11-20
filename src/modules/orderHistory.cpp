@@ -29,12 +29,12 @@ void waktu()
 }
 
 // panggil fungsi ini tepat setelah memanggil fungsi createBeverages() untuk menambahkan history
-void putHistoryBeverages(Beverages minumanBaru)
+void putHistoryBeverages(Beverages *minumanBaru)
 {
-	strcpy(histo[ctrHistory].name, minumanBaru.name);
-	histo[ctrHistory].price = minumanBaru.price;
-	strcpy(histo[ctrHistory].flavor, minumanBaru.flavor);
-	histo[ctrHistory].size = minumanBaru.size;
+	strcpy(histo[ctrHistory].name, minumanBaru->name);
+	histo[ctrHistory].price = minumanBaru->price;
+	strcpy(histo[ctrHistory].flavor, minumanBaru->flavor);
+	histo[ctrHistory].size = minumanBaru->size;
 	strcpy(histo[ctrHistory].topping, "-");
 	histo[ctrHistory].callories = -1; // not defined
 	waktu();
@@ -43,12 +43,12 @@ void putHistoryBeverages(Beverages minumanBaru)
 }
 
 // panggil fungsi ini tepat setelah memanggil fungsi createDessert() untuk menambahkan history
-void putHistoryDesserts(Dessert dessertBaru)
+void putHistoryDesserts(Dessert *dessertBaru)
 {
-	strcpy(histo[ctrHistory].name, dessertBaru.Dessert_Name);
-	histo[ctrHistory].price = dessertBaru.Price;
-	strcpy(histo[ctrHistory].topping, dessertBaru.Topping);
-	histo[ctrHistory].callories = dessertBaru.callories;
+	strcpy(histo[ctrHistory].name, dessertBaru->Dessert_Name);
+	histo[ctrHistory].price = dessertBaru->Price;
+	strcpy(histo[ctrHistory].topping, dessertBaru->Topping);
+	histo[ctrHistory].callories = dessertBaru->callories;
 	strcpy(histo[ctrHistory].flavor, "-");
 	histo[ctrHistory].size = '-';
 	waktu();
@@ -82,6 +82,9 @@ void viewOrderHistory()
 			}
 			i++;
 		}
+		puts("");
+        puts("Press Enter to return to main menu");
+        getchar();
 	}
 	else
 	{
