@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "modules/orderHistory.h"
 #include "modules/beverages.h"
@@ -85,17 +86,23 @@ int main()
             case 4:
                 {
                     puts("");
-                    MenuOpercooked listed_menu = newOrder();
-                    if (listed_menu.type == 'd') {
-                        cookDessert(listed_menu.dessertData);
-                    } else if (listed_menu.type == 'b') {
-                        cookBeverage(listed_menu.beverageData);
+                    MenuOpercooked *listed_menu = newOrder();
+                    if (listed_menu->type == 'd') {
+                        cookDessert(listed_menu->dessertData);
+                    } else if (listed_menu->type == 'b') {
+                        cookBeverage(listed_menu->beverageData);
+                    } else if (listed_menu->type == 'e') {
+                        // remove garbage data from memory
+                        free(listed_menu);
                     }
                 }
                 break;
             case 5:
                 puts("Thank You");
+                // Nuke menu
                 removeAndFreeAllMenu();
+                // Nuke history
+                nukeAndFreeHistoryList();
                 flag = 0;
                 return 0;
         }
