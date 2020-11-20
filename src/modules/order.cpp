@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "order.h"
 #include "beverages.h"
 #include "desserts.h"
@@ -19,6 +21,18 @@ void addDessertToList(Dessert *menuBaru)
     ctrMenu++;
     ListOrderMenu[ctrMenu].dessertData = menuBaru;
     ListOrderMenu[ctrMenu].type = 'd'; // d for dessert
+}
+
+void removeAndFreeAllMenu() {
+    if (ctrMenu > -1) {
+        for (int i = 0; i < ctrMenu + 1; i++) {
+            if (ListOrderMenu[i].type == 'd') {
+                free(ListOrderMenu[i].dessertData);
+            } else if (ListOrderMenu[i].type == 'b') {
+                free(ListOrderMenu[i].beverageData);
+            }
+        }
+    }
 }
 
 // Panggil function ini dari main.cpp
