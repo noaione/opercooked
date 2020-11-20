@@ -28,8 +28,8 @@ typedef struct inputHistory {
 } inputHistory;
 
 void waktu();
-void putHistoryBeverages(Beverages minumanBaru);
-void putHistoryDesserts(Dessert dessertBaru);
+void putHistoryBeverages(Beverages *minumanBaru);
+void putHistoryDesserts(Dessert *dessertBaru);
 void viewOrderHistory();
 
 #endif /* MOD_ORDERHISTORY_H */

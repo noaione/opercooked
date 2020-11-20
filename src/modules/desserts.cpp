@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "desserts.h"
 #include "utils.h"
@@ -13,48 +14,48 @@
 void Checking_Topping(char Topping[], Dessert *dessert);
 int Total_Time(int Extra_time);
 
-Dessert addDessert(void)
+Dessert *addDessert(void)
 {
-    Dessert NewDessert;
+    Dessert *NewDessert = (Dessert *)malloc(sizeof(Dessert));
     //input nama makanan
-    while (strlen(NewDessert.Dessert_Name) < 5)
+    while (strlen(NewDessert->Dessert_Name) < 5)
     {
         printf("Input the name [at least 5 character]: ");
-        scanf("%[^\n]", NewDessert.Dessert_Name);
+        scanf("%[^\n]", NewDessert->Dessert_Name);
         getchar();
     }
     //input harga makanan
-    while (NewDessert.Price < 10 || NewDessert.Price > 500)
+    while (NewDessert->Price < 10 || NewDessert->Price > 500)
     {
         printf("Input the Price [10 - 500]: $ ");
-        scanf("%d", &NewDessert.Price);
+        scanf("%d", &NewDessert->Price);
         getchar();
     }
 
-    NewDessert.modifier = -1;
-    while (NewDessert.modifier < 0)
+    NewDessert->modifier = -1;
+    while (NewDessert->modifier < 0)
     {
         printf("Input the Topping ['Caramel' | 'Honey' | 'Syrup'](Case Insensitive): ");
-        scanf("%s", NewDessert.Topping);
+        scanf("%s", NewDessert->Topping);
         getchar();
-        int topping_len = strlen(NewDessert.Topping);
+        int topping_len = strlen(NewDessert->Topping);
         for (int i = 0; i < topping_len; i++)
         {
-            if (NewDessert.Topping[i] >= 'A' && NewDessert.Topping[i] <= 'Z')
+            if (NewDessert->Topping[i] >= 'A' && NewDessert->Topping[i] <= 'Z')
             {
-                NewDessert.Topping[i] += 32;
+                NewDessert->Topping[i] += 32;
             }
         }
-        Checking_Topping(NewDessert.Topping, &NewDessert);
+        Checking_Topping(NewDessert->Topping, NewDessert);
     }
 
-    NewDessert.Totaltime = Total_Time(NewDessert.Extra_Time);
+    NewDessert->Totaltime = Total_Time(NewDessert->Extra_Time);
     // Kapitalisasi kembali.
-    NewDessert.Topping[0] -= 32;
-    while (NewDessert.callories < 1.00 || NewDessert.callories > 99.00)
+    NewDessert->Topping[0] -= 32;
+    while (NewDessert->callories < 1.00 || NewDessert->callories > 99.00)
     {
         printf("Insert callories [1.00 - 99.00]: ");
-        scanf("%f", &NewDessert.callories);
+        scanf("%f", &NewDessert->callories);
         getchar();
     }
     return NewDessert;

@@ -5,8 +5,8 @@
 #include "desserts.h"
 
 typedef struct cookingData {
-    Beverages drinks;
-    Dessert desserts;
+    Beverages *drinks;
+    Dessert *desserts;
     int timer;
     int price;
     int type;
@@ -17,8 +17,8 @@ typedef struct cookedData {
     int totalCooked;
 } cookedData;
 
-void cookBeverage(Beverages newDrink);
-void cookDessert(Dessert newDessert);
+void cookBeverage(Beverages *newDrink);
+void cookDessert(Dessert *newDessert);
 cookedData viewCookProcess();
 
 #endif

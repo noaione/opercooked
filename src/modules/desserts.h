@@ -11,6 +11,6 @@ typedef struct Dessert{
     float callories;
 } Dessert;
 
-Dessert addDessert(void);
+Dessert *addDessert(void);
 
 #endif /* MOD_DESSERTS_H */

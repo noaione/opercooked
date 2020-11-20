@@ -8,18 +8,18 @@
 cookingData processing[1000];
 int ctr = 0;
 
-void cookBeverage(Beverages newDrink) {
+void cookBeverage(Beverages *newDrink) {
     processing[ctr].drinks = newDrink;
-    processing[ctr].price = newDrink.price;
-    processing[ctr].timer = newDrink.cooktime;
+    processing[ctr].price = newDrink->price;
+    processing[ctr].timer = newDrink->cooktime;
     processing[ctr].type = 1;
     ctr++;
 }
 
-void cookDessert(Dessert newDessert) {
+void cookDessert(Dessert *newDessert) {
     processing[ctr].desserts = newDessert;
-    processing[ctr].price = newDessert.Price;
-    processing[ctr].timer = newDessert.Totaltime;
+    processing[ctr].price = newDessert->Price;
+    processing[ctr].timer = newDessert->Totaltime;
     processing[ctr].type = 0;
     ctr++;
 }
@@ -37,15 +37,17 @@ cookedData viewCookProcess() {
             if (processing[i].timer <= 0) {
                 finished.totalCooked++;
                 finished.cookedItems[finished.totalCooked] = processing[i];
-                ctr--;
             } else {
                 if (processing[i].type == 1) {
-                    printf("| %d\t| Drink\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].drinks.name, processing[i].price, processing[i].timer);
+                    printf("| %d\t| Drink\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].drinks->name, processing[i].price, processing[i].timer);
                 } else {
-                    printf("| %d\t| Dessert\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].desserts.Dessert_Name, processing[i].price, processing[i].timer);
+                    printf("| %d\t| Dessert\t\t| %s\t\t\t| $%d\t| %ds\t\t|\n", i + 1, processing[i].desserts->Dessert_Name, processing[i].price, processing[i].timer);
                 }
                 processing[i].timer -= 10;
             }
+        }
+        if (finished.totalCooked > -1) {
+            ctr -= (finished.totalCooked + 1);
         }
         puts("");
         puts("Press Enter to return to main menu");

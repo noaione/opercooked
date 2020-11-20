@@ -10,6 +10,6 @@ typedef struct Beverages {
     int cooktime;
 } Beverages;
 
-Beverages createBeverages(void);
+Beverages *createBeverages(void);
 
 #endif /* MOD_BEVERAGES_H */
