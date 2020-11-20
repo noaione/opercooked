@@ -10,6 +10,8 @@ typedef struct MenuOpercooked {
     char type;
 } MenuOpercooked;
 
+void addBeveragesToList(Beverages menuBaru);
+void addDessertToList(Dessert menuBaru);
 MenuOpercooked newOrder();
 
 #endif

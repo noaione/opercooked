@@ -5,6 +5,7 @@
 #include "modules/desserts.h"
 #include "modules/utils.h"
 #include "modules/cookingProcess.h"
+#include "modules/order.h"
 
 // Cukup satu int main
 // Jangan buat di file lain karena akan conflict.
@@ -53,10 +54,10 @@ int main()
                     puts("");
                     if (pickedMenu == 1) {
                         Dessert newdessert = addDessert();
-                        // add to menu list
+                        addDessertToList(newdessert);
                     } else if (pickedMenu == 2) {
                         Beverages newbeverage = createBeverages();
-                        // add to menu list
+                        addBeveragesToList(newbeverage);
                     }
                     break;
                 }
@@ -84,10 +85,15 @@ int main()
                 viewOrderHistory();
                 break;
             case 4:
-                puts("");
-                // Order_Menu();
-                // if dessert, cookDessert(xxxxxx);
-                // if beverages, cookBeverage(xxxxxx);
+                {
+                    puts("");
+                    MenuOpercooked listed_menu = newOrder();
+                    if (listed_menu.type == 'd') {
+                        cookDessert(listed_menu.dessertData);
+                    } else if (listed_menu.type == 'b') {
+                        cookBeverage(listed_menu.beverageData);
+                    }
+                }
                 break;
             case 5:
                 puts("Thank You");
