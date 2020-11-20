@@ -68,20 +68,7 @@ void removeAndFreeAllMenu() {
 	}
 }
 
-// Panggil function ini dari main.cpp
-// #include "modules/order.h"
-
-// MenuOpercooked orderBaru = newOrder();
-// if (orderBaru.type == 'e') {
-//     // ignore since it's empty data
-// } else if (orderBaru.type == 'd') {
-//     // dessert
-//     addToDessertCookingList(orderBaru.dessertData);
-// } else if (orderBaru.type == 'b') {
-//     // beverage
-//     addToBeveragesCookingList(orderBaru.dessertData);
-// }
-
+// This is too hacky, I hate it :D
 MenuOpercooked *getMenuFromInteger(int needed_pos) {
     // reset cursor to head
     menuCurr = menuHead;
@@ -94,7 +81,7 @@ MenuOpercooked *getMenuFromInteger(int needed_pos) {
         return menuHead->menu;
     }
     int curr_pos = 0;
-    for (int i = 0; i < needed_pos; i++) {
+    for (int i = 0; i <= needed_pos; i++) {
         if (i == needed_pos) {
             if (!menuCurr) {
                 // number match, but data is missing :(
@@ -126,6 +113,19 @@ void printMenuData(MenuOpercooked *menu, int pos) {
     }
 }
 
+// Panggil function ini dari main.cpp
+// #include "modules/order.h"
+
+// MenuOpercooked *orderBaru = newOrder();
+// if (orderBaru->type == 'e') {
+//     free(orderBaru);
+// } else if (orderBaru->type == 'd') {
+//     // dessert
+//     addToDessertCookingList(orderBaru->dessertData);
+// } else if (orderBaru->type == 'b') {
+//     // beverage
+//     addToBeveragesCookingList(orderBaru->dessertData);
+// }
 MenuOpercooked *newOrder()
 {
     if (!menuHead)
