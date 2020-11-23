@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "cookingProcess.h"
 #include "beverages.h"
@@ -22,6 +23,18 @@ void cookDessert(Dessert *newDessert) {
     processing[ctr].timer = newDessert->Totaltime;
     processing[ctr].type = 0;
     ctr++;
+}
+
+void cancelAndFreeOngoingCooking() {
+    if (ctr != 0) {
+        for (int i = 0; i < ctr; i++) {
+            if (processing[i].type == 0) {
+                free(processing[i].desserts);
+            } else if (processing[i].type == 1) {
+                free(processing[i].drinks);
+            }
+        }
+    }
 }
 
 cookedData viewCookProcess() {

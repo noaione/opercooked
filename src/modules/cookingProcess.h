@@ -19,6 +19,7 @@ typedef struct cookedData {
 
 void cookBeverage(Beverages *newDrink);
 void cookDessert(Dessert *newDessert);
+void cancelAndFreeOngoingCooking();
 cookedData viewCookProcess();
 
 #endif
