@@ -12,13 +12,15 @@ typedef struct cookingData {
     int type;
 } cookingData;
 
-typedef struct cookedData {
-    cookingData cookedItems[500];
-    int totalCooked;
-} cookedData;
+struct CookedNode {
+    cookingData *cooked;
+    CookedNode *next;
+};
 
 void cookBeverage(Beverages *newDrink);
 void cookDessert(Dessert *newDessert);
-cookedData viewCookProcess();
+void cancelAndFreeOngoingCooking();
+void freeCookedDataList(CookedNode *headRef);
+CookedNode *viewCookProcess();
 
 #endif
