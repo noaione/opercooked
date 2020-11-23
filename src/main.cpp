@@ -103,6 +103,8 @@ int main()
                 removeAndFreeAllMenu();
                 // Nuke history
                 nukeAndFreeHistoryList();
+                // Nuke ongoing cooking process
+                cancelAndFreeOngoingCooking();
                 flag = 0;
                 return 0;
         }
