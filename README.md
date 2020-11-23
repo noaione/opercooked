@@ -3,6 +3,8 @@ Tugas Pertama Algorithm Bootcamp Season 2
 
 [![Build Status](https://travis-ci.com/noaione/opercooked.svg?branch=master)](https://travis-ci.com/noaione/opercooked)
 
+Project ini diprakasai dengan Travis CI untuk Test Build dan Deployment.
+
 ## Compiling
 Cara compile project ini cukup mudah.
 
@@ -33,3 +35,6 @@ Format penulisannya adalah: `FILE_YANG_DIUBAH: Perubahan`<br>
 `FILE_YANG_DIUBAH` cukup tulis nama filenya tanpa extensionnya (.cpp/.h)
 
 Kenapa kayak gini? Biar enak diliat.
+
+## License
+Unlicensed, and released to Public Domain for anyone to use.
