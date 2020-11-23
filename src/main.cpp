@@ -63,19 +63,30 @@ int main()
             case 2:
                 {
                     puts("");
-                    cookedData cookProcess = viewCookProcess();
-                    if (cookProcess.totalCooked + 1 > 0) {
-                        for (int i = 0; i < cookProcess.totalCooked + 1; i++) {
-                            if (cookProcess.cookedItems[i].type == 0) {
-                                // dessert
-                                putHistoryDesserts(cookProcess.cookedItems[i].desserts);
-                                profit += cookProcess.cookedItems[i].price;
-                            } else if (cookProcess.cookedItems[i].type == 1) {
-                                // beverages
-                                putHistoryBeverages(cookProcess.cookedItems[i].drinks);
-                                profit += cookProcess.cookedItems[i].price;
-                            }
+                    CookedNode *cookProcess = viewCookProcess();
+                    if (!cookProcess) {
+                        // bogus data received
+                        free(cookProcess);
+                    } else {
+                        CookedNode *cookedCurr = cookProcess;
+                        if (cookedCurr->cooked->type == 0) {
+                            putHistoryDesserts(cookedCurr->cooked->desserts);
+                        } else if (cookedCurr->cooked->type == 1) {
+                            putHistoryBeverages(cookedCurr->cooked->drinks);
                         }
+                        profit += cookedCurr->cooked->price;
+                        cookedCurr = cookedCurr->next;
+                        while (cookedCurr) {
+                            if (cookedCurr->cooked->type == 0) {
+                                putHistoryDesserts(cookedCurr->cooked->desserts);
+                            } else if (cookedCurr->cooked->type == 1) {
+                                putHistoryBeverages(cookedCurr->cooked->drinks);
+                            }
+                            profit += cookedCurr->cooked->price;
+                            cookedCurr = cookedCurr->next;
+                        }
+                        // pain-peko
+                        // freeCookedDataList(cookProcess);
                     }
                     break;
                 }
@@ -103,6 +114,8 @@ int main()
                 removeAndFreeAllMenu();
                 // Nuke history
                 nukeAndFreeHistoryList();
+                // Nuke ongoing
+                cancelAndFreeOngoingCooking();
                 flag = 0;
                 return 0;
         }
