@@ -57,13 +57,11 @@ void removeAndFreeAllMenu() {
 		free(menuCurr->menu);
         menuCurr = menuCurr->next;
         free(menuHead);
-        int ctrMenu = 1;
 		while (menuCurr) {
 			free(menuCurr->menu);
             MenuNode *nextAddr = menuCurr->next;
             free(menuCurr);
 			menuCurr = nextAddr;
-            ctrMenu++;
 		}
 	}
 }
